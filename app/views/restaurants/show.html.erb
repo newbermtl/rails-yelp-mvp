@@ -6,9 +6,9 @@
 
 <p>Phone number: <%= @restaurant.phone_number %> </p>
 
-<p>Leave a review for <%= link_to @restaurant.name, new_restaurant_review_path(@restaurant) %> </p>
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
 
-<ul>
+<ul class="m-3">
   <% @restaurant.reviews.each do |review| %>
     <li class="card">
       <%= review.content %>
