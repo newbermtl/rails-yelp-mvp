@@ -6,14 +6,22 @@
 
 <p>Phone number: <%= @restaurant.phone_number %> </p>
 
-<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+
+ <%# render "reviews/form_review", review: @restaurant %>
+
+ <%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit "Submit Review", class: 'btn btn-primary' %>
+<% end %>
+
 
 <ul class="m-3">
   <% @restaurant.reviews.each do |review| %>
     <li class="card">
       <%= review.content %>
       <br>
-      Rating: <%= review.rating%> star
+      Rating: <%= "\u{1f31f}" * review.rating  %>
     </li>
   <% end %>
 
