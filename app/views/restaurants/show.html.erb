@@ -6,15 +6,7 @@
 
 <p>Phone number: <%= @restaurant.phone_number %> </p>
 
-
- <%# render "reviews/form_review", review: @restaurant %>
-
- <%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
-  <%= f.submit "Submit Review", class: 'btn btn-primary' %>
-<% end %>
-
+ <%= render "reviews/form_review", review: @restaurant %>
 
 <ul class="m-3">
   <% @restaurant.reviews.each do |review| %>
